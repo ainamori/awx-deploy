@@ -1,0 +1,3 @@
+[submodule "builder/awx"]
+	path = builder/awx
+	url = git@github.com:ansible/awx.git
