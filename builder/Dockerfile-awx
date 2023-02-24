@@ -1,0 +1,7 @@
+FROM ghcr.io/ansible/awx_devel:devel
+
+ADD awx /awx_devel
+RUN dnf install -y iputils bind-utils && \
+    rm -rf /var/cache /var/log/dnf* /var/log/yum.*
+
+WORKDIR /awx_devel
