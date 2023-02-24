@@ -22,14 +22,13 @@ awx を docker-composeで利用するためのリポジトリ
 
 - repoを clone もしくは fetchする
 - .envを編集し、ホスト情報を構成する
- - awx_1(master) と awx_2(slave) は別ホストで起動する事を想定しています
- - dnsを別途指定したりするなどして名前解決が行える場合を除きIP
- アドレスを記載してください
+  - awx_1(master) と awx_2(slave) は別ホストで起動する事を想定しています
+  - dnsを別途指定したりするなどして名前解決が行える場合を除きIPアドレスを記載してください
 - ホスト毎にiptables/firewalld等を適宜空ける
 - master nodeのdocker-composeから起動する
   - 最低でもdb migration が完了し、完全に起動するまではslaveを起動しないこと
 
-- 事前編集
+### 事前編集
 
 ```bash
  git clone https://github.com/ainamori/awx-deploy.git
@@ -51,12 +50,14 @@ awx を docker-composeで利用するためのリポジトリ
 
 *) ログイン情報 `admin`/.envで指定した `AWX_SUPERUSER_PASSWORD`
 
-## awx_1 と awx_2 の結合
+## AWX インスタンス登録
+
+### awx_1 と awx_2 の結合
 
 UIのトポロジービューを見ると分かるがこのままでは awx_1 と awx_2 が独立していて相互で機能していない。
 また、receptor-hopも存在していない。
 
-これはreceptorの経路とAWXトポロジ（インスタンス）は別管理になっているからら。
+これはreceptorの経路とAWXトポロジ（インスタンス）は別管理になっているから。
 
 
 ```bash
@@ -70,7 +71,6 @@ docker exec -it awx_1 awx-manage register_peers "receptor-hop_2" --peers "recept
 ```
 
 - awx_2 で行う場合は docker exec 先を awx_2 に変更する
-
 
 ### Excecution nodeの追加
 

@@ -52,7 +52,7 @@ services:
     tty: true
     privileged: true
   redis_1:
-    image: ghrc.io/ainamori/awx/awx/redis:dev
+    image: redis
     profiles:
       - "master"
     container_name: redis_1
@@ -192,7 +192,7 @@ services:
       - "./config/receptor/receptor-hop_2.conf:/etc/receptor/receptor.conf"
     privileged: true
   haproxy:
-    image: ghrc.io/ainamori/awx/awx/haproxy:dev
+    image: haproxy
     profiles:
       - "master"
     user: root
@@ -223,7 +223,7 @@ services:
   #     context: ./docker-compose
   #     dockerfile: Dockerfile-logstash
   postgres:
-    image: ghrc.io/ainamori/awx/awx/postgres:dev
+    image: postgres:12
     profiles:
       - "master"
     container_name: postgres_1
