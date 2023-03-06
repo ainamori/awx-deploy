@@ -16,6 +16,7 @@ awx を docker-composeで利用するためのリポジトリ
 それぞれのprofilesに含まれるコンテナ、構成配下の通り
 
 ![AWX diagram](docs/images/awx_diagram.drawio.png)
+![AWX container](docs/images/awx_hybrid.drawio.png)
 
 
 ## 起動方法
